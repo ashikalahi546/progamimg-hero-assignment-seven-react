@@ -4,8 +4,8 @@ import BannerSection from "./Components/BannerSection";
 import Header from "./Components/Header";
 import RecipesSections from "./Components/RecipesSections";
 import Tables from "./Components/Tables";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [addCooks, setAddCook] = useState([]);
@@ -21,12 +21,13 @@ function App() {
       const newAddTo = [...addCooks, details];
       setAddCook(newAddTo);
     } else {
-      alert("Limited carts");
+      toast.error("Limited cart");
     }
   };
 
   return (
     <>
+      <ToastContainer></ToastContainer>
       <Header></Header>
       <BannerSection></BannerSection>
 
