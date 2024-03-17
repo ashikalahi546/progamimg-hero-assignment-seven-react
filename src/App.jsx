@@ -17,11 +17,11 @@ function App() {
     };
 
     const isAlreadyExcess = addCooks.find((item) => item.cook === cook);
-    if (!isAlreadyExcess) {
+    if (isAlreadyExcess) {
+      toast.error("Cannot select more than one");
+    } else {
       const newAddTo = [...addCooks, details];
       setAddCook(newAddTo);
-    } else {
-      toast.error("Limited cart");
     }
   };
 

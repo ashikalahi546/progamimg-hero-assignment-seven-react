@@ -1,10 +1,10 @@
+import Current from "./Current";
 
-
-const CurrentlyCooking = () => {
-      return (
-            <div>
-                    <div className="text-center font-medium  text-xl mt-10">
-        Currently cooking: 0
+const CurrentlyCooking = ({ currently }) => {
+  return (
+    <div>
+      <div className="text-center font-medium  text-xl mt-10">
+        Currently cooking: {currently.length}
       </div>
       <div className="px-10 py-3">
         <hr />
@@ -14,8 +14,11 @@ const CurrentlyCooking = () => {
         <h3>Time</h3>
         <h3>Calories</h3>
       </div>
-            </div>
-      );
+      {currently.map((current, index) => (
+        <Current current={current} index={index} key={index}></Current>
+      ))}
+    </div>
+  );
 };
 
 export default CurrentlyCooking;
